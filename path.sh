@@ -1,4 +1,13 @@
-# https://stackoverflow.com/a/31086901/376773
+import "string@0.1.0"
+
+# Collapses `.` and `..` segments from a file path.
+#
+# ```
+# $ path_normalize "/foo/./bar/.."
+# "/foo"
+# ```
+#
+# Based on: https://stackoverflow.com/a/31086901/376773
 path_normalize() {(
   shopt -s extglob
   local path="$1"
@@ -12,3 +21,17 @@ path_normalize() {(
   # remove the last '/.'
   echo "${path%%/.}"
 )}
+
+# Replaces a file path contained within the `$HOME` directory with `~`.
+#
+# ```
+# path_pretty "/home/me/example.txt"
+# "~/example.txt"
+# ```
+path_pretty() {
+  if string_starts_with "$1" "$HOME"; then
+    echo "~${1:${#HOME}}"
+  else
+    echo "$1"
+  fi
+}
