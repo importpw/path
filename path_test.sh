@@ -14,5 +14,7 @@ assert_equal "$(HOME="/home/me" path_pretty "/home/me/foo.txt")" "~/foo.txt"
 assert_equal "$(HOME="/home/me" path_pretty "/home/me/another/foo.csv")" "~/another/foo.csv"
 assert_equal "$(HOME="/home/me" path_pretty "/root/foo.txt")" "/root/foo.txt"
 assert_equal "$(HOME="/home/other" path_pretty "/home/me/foo.txt")" "/home/me/foo.txt"
+assert_equal "$(HOME="/home/user" path_pretty "/home/user/file.txt")" "~/file.txt"
+assert_equal "$(HOME="/home/user" path_pretty "/home/other/file.txt")" "/home/other/file.txt"
 
 echo "Tests passed!"
