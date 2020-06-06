@@ -11,8 +11,10 @@ Path string manipulation functions for shell scripts.
 #!/usr/bin/env import
 import "path"
 
+echo "pwd is: $(pwd)"
+
 path_resolve ".."
-# /foo
+# /tmp
 ```
 
 ### `path_normalize "$input"`
