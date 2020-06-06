@@ -5,11 +5,21 @@ Path string manipulation functions for shell scripts.
 
 ## API
 
+### `path_resolve "$input"`
+
+```bash
+#!/usr/bin/env import
+import "path"
+
+path_resolve ".."
+# /foo
+```
+
 ### `path_normalize "$input"`
 
 ```bash
 #!/usr/bin/env import
-import "path@0.0.1"
+import "path"
 
 path_normalize "/foo/./bar/.."
 # /foo
@@ -19,7 +29,7 @@ path_normalize "/foo/./bar/.."
 
 ```bash
 #!/usr/bin/env import
-import "path@0.0.1"
+import "path"
 
 export HOME=/home/user
 

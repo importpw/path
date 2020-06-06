@@ -1,5 +1,9 @@
 import "string@0.1.0"
 
+path_resolve() {(
+	cd "$1" && pwd
+)}
+
 # Collapses `.` and `..` segments from a file path.
 #
 # ```
